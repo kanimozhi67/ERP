@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Button, Space, message, Popconfirm, Input, Modal, Form, InputNumber } from 'antd';
+import {
+  PlusOutlined,
+  EditOutlined,
+  DeleteOutlined,
+} from '@ant-design/icons';
 import axios from 'axios';
 
 const { Search } = Input;
@@ -96,9 +101,14 @@ const MaterialPage = () => {
       key: 'actions',
       render: (_, record) => (
         <Space>
-          <Button type="primary" onClick={() => openModal(record)}>Edit</Button>
+          <Button type="primary" onClick={() => openModal(record)}><EditOutlined /></Button>
           <Popconfirm title="Are you sure?" onConfirm={() => handleDelete(record._id)}>
-            <Button danger>Delete</Button>
+            <Button danger  
+             style={{
+    backgroundColor: 'white',
+    borderColor: 'red',
+    color: 'red',
+  }}> <DeleteOutlined /></Button>
           </Popconfirm>
         </Space>
       )
@@ -108,7 +118,7 @@ const MaterialPage = () => {
   return (
     <div>
       <Space style={{ marginBottom: 16 }}>
-        <Button type="primary" onClick={() => openModal()}>Add Material</Button>
+        <Button type="primary" onClick={() => openModal()} icon={<PlusOutlined /> }>Add Material</Button>
         <Search
           placeholder="Search by name or description"
           onSearch={onSearch}
@@ -122,16 +132,16 @@ const MaterialPage = () => {
         columns={columns}
         dataSource={filteredData}
         loading={loading}
-        pagination={{ pageSize: 5 }}
+        pagination={{ pageSize: 3}}
       />
 
       {/* Modal Form */}
       <Modal
         title={editingMaterial ? 'Edit Material' : 'Add Material'}
-        visible={isModalVisible}
+        open={isModalVisible}
         onCancel={handleCancel}
         footer={null}
-        destroyOnClose
+        destroyOnHidden
       >
         <Form
           form={form}
