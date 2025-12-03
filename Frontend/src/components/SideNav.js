@@ -37,6 +37,11 @@ const SideNav = ({ collapsed, onClose }) => {
       label: 'Fleet Tasks',
     },
     {
+      key: '/materials',
+      icon: <CarOutlined />,
+      label: 'Materials',
+    },
+    {
       key: '/vehicles',
       icon: <CarOutlined />,
       label: 'Vehicles',

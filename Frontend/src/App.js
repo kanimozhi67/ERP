@@ -7,8 +7,10 @@ import FleetTasksPage from './pages/FleetTasksPage';
 import DriversPage from './pages/DriversPage';
 import VehiclesPage from './pages/VehiclesPage';
 import TaskPage from './pages/TaskPage'; // Import the TaskPage
+import MaterialsPage from './pages/MaterialsPage';
 import TopHeader from './components/TopHeader';
 import SideNav from './components/SideNav';
+
 
 function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
@@ -72,6 +74,12 @@ function App() {
           </AppLayout>
         } />
         
+         <Route path="/materials" element={
+          <AppLayout>
+            <MaterialsPage />
+          </AppLayout>
+        } />
+
         <Route path="/vehicles" element={
           <AppLayout>
             <VehiclesPage />
