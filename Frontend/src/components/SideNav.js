@@ -13,7 +13,8 @@ import {
   FileDoneOutlined,
   DoubleLeftOutlined,
   CarOutlined,
-  ScheduleOutlined
+  ScheduleOutlined,
+  GoldOutlined 
 } from '@ant-design/icons';
 
 const SideNav = ({ collapsed, onClose }) => {
@@ -38,7 +39,7 @@ const SideNav = ({ collapsed, onClose }) => {
     },
     {
       key: '/materials',
-      icon: <CarOutlined />,
+      icon: <GoldOutlined  />,
       label: 'Materials',
     },
     {
